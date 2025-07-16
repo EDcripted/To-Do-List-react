@@ -17,7 +17,8 @@ A modern, responsive to-do list web app built with **React**.
 
 ## Screenshots
 
-![screenshot](./screenshot.png)
+<img width="287" height="263" alt="Screenshot 2025-07-16 183336" src="https://github.com/user-attachments/assets/98db05ef-c25d-420b-80aa-fe95409341ff" />
+
 
 ## Technologies Used
 
