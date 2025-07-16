@@ -1,12 +1,34 @@
-# React + Vite
+# E-Day List 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive to-do list web app built with **React**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Add, delete, and reorder tasks
+- 🌗 Light/Dark theme toggle
+- 💾 Persistent tasks using `localStorage`
+- 📱 Mobile-first responsive design
+- 🎨 Smooth animations and gradient UI
 
-## Expanding the ESLint configuration
+## Demo
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔗 Live Demo: [View Project](https://e-day-list.vercel.app)  
+*(Replace with your actual deployed URL)*
+
+## Screenshots
+
+![screenshot](./screenshot.png)
+
+## Technologies Used
+
+- React
+- CSS3 (custom styling with gradients)
+- LocalStorage
+
+## Getting Started
+
+```bash
+git clone https://github.com/EDcripted/e-day-list.git
+cd e-day-list
+npm install
+npm start
