@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --primary: #6C63FF;
+  --green: #4CAF50;
+  --red: #EF5350;
+  --blue: #42A5F5;
+  --light-bg: #f5f7fa;
+  --light-card: #ffffff;
+  --dark-bg: #121212;
+  --dark-card: rgba(30, 30, 30, 0.8);
+  --dark-text: #f1f1f1;
+  --glass-blur: blur(10px);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  transition: background-color 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 16px;
+  box-sizing: border-box;
+}
+
+.to-do-list {
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--light-card);
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.to-do-list.dark {
+  background-color: var(--dark-card);
+  backdrop-filter: var(--glass-blur);
+  color: var(--dark-text);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.theme-toggle {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.theme-toggle:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  flex: 1 1 60%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  outline: none;
+  transition: border-color 0.3s ease;
+  min-width: 200px;
+}
+input[type="text"]:focus {
+  border-color: var(--primary);
+}
+
+button {
+  font-weight: 600;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.add-button {
+  background-color: var(--green);
+  color: white;
+}
+.add-button:hover {
+  background-color: #388e3c;
+}
+
+.delete-button {
+  background-color: var(--red);
+  color: white;
+}
+.delete-button:hover {
+  background-color: #c62828;
+}
+
+.move-button {
+  background-color: var(--blue);
+  color: white;
+}
+.move-button:hover {
+  background-color: #1976d2;
+}
+
+ol {
+  padding: 0;
+  margin-top: 20px;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background-color: var(--light-bg);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.to-do-list.dark li {
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+}
+
+.text {
+  flex-grow: 1;
+  font-size: 1.05rem;
+  word-break: break-word;
+  text-align: left;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+li > input[type="checkbox"] {
+  margin: 0;
+}
+
+.delete-button,
+.move-button {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+}
+
+/* Dark Theme Overrides */
+.to-do-list.dark h1 {
+  color: var(--primary);
+}
+.to-do-list.dark input[type="text"] {
+  background-color: #222;
+  color: white;
+  border-color: #444;
+}
+.to-do-list.dark input[type="text"]::placeholder {
+  color: #aaa;
+}
+.to-do-list.dark .text {
+  color: white;
+}
+.to-do-list.dark input[type="checkbox"] {
+  accent-color: var(--primary);
+}
+
+/* Responsive Optimizations */
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  input[type="text"],
+  .add-button {
+    width: 100%;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .delete-button,
+  .move-button {
+    margin-top: 6px;
+    width: 100%;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+}
