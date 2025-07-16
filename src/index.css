@@ -5,26 +5,35 @@
   --green: #4CAF50;
   --red: #EF5350;
   --blue: #42A5F5;
-  --light-bg: #f5f7fa;
-  --light-card: #ffffff;
-  --dark-bg: #121212;
-  --dark-card: rgba(30, 30, 30, 0.8);
+  --light-bg: linear-gradient(135deg, #f5f7fa, #dfe9f3);
+  --light-card: rgba(255, 255, 255, 0.9);
+  --dark-bg: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+  --dark-card: rgba(30, 30, 30, 0.85);
   --dark-text: #f1f1f1;
   --glass-blur: blur(10px);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: var(--light-bg);
-  transition: background-color 0.4s ease;
+  background: var(--light-bg);
+  background-size: cover;
+  background-attachment: fixed;
+  transition: background 0.4s ease;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
   padding: 40px 16px;
-  box-sizing: border-box;
+}
+
+body.dark {
+  background: var(--dark-bg);
 }
 
 .to-do-list {
@@ -32,15 +41,14 @@ body {
   max-width: 500px;
   background-color: var(--light-card);
   padding: 25px 20px;
-  border-radius: 16px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  box-sizing: border-box;
+  backdrop-filter: var(--glass-blur);
 }
 
 .to-do-list.dark {
   background-color: var(--dark-card);
-  backdrop-filter: var(--glass-blur);
   color: var(--dark-text);
 }
 
@@ -48,6 +56,7 @@ h1 {
   font-size: 2rem;
   margin-bottom: 20px;
   color: var(--primary);
+  text-align: center;
 }
 
 .theme-toggle {
@@ -60,6 +69,9 @@ h1 {
   cursor: pointer;
   margin-bottom: 20px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .theme-toggle:hover {
   background-color: var(--primary);
@@ -68,22 +80,25 @@ h1 {
 
 .input-group {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
   flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
 }
 
-input[type="text"] {
-  flex: 1 1 60%;
+.input-group input[type="text"] {
+  flex: 1 1 auto;
+  min-width: 0;
   padding: 12px;
   font-size: 1rem;
   border-radius: 8px;
   border: 2px solid #ddd;
   outline: none;
   transition: border-color 0.3s ease;
-  min-width: 200px;
+  width: 100%;
+  background: #fff;
 }
-input[type="text"]:focus {
+
+.input-group input[type="text"]:focus {
   border-color: var(--primary);
 }
 
@@ -133,7 +148,7 @@ li {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  background-color: var(--light-bg);
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   padding: 12px 14px;
   margin-bottom: 15px;
@@ -142,7 +157,7 @@ li {
 }
 
 .to-do-list.dark li {
-  background-color: #1f1f1f;
+  background-color: rgba(31, 31, 31, 0.9);
   border: 1px solid #333;
 }
 
@@ -167,16 +182,6 @@ li > input[type="checkbox"] {
   margin: 0;
 }
 
-.delete-button,
-.move-button {
-  padding: 6px 10px;
-  font-size: 0.85rem;
-}
-
-/* Dark Theme Overrides */
-.to-do-list.dark h1 {
-  color: var(--primary);
-}
 .to-do-list.dark input[type="text"] {
   background-color: #222;
   color: white;
@@ -192,7 +197,6 @@ li > input[type="checkbox"] {
   accent-color: var(--primary);
 }
 
-/* Responsive Optimizations */
 @media (max-width: 500px) {
   h1 {
     font-size: 1.6rem;
@@ -200,12 +204,12 @@ li > input[type="checkbox"] {
 
   .input-group {
     flex-direction: column;
-    gap: 12px;
   }
 
   input[type="text"],
   .add-button {
     width: 100%;
+    min-width: 0;
   }
 
   li {
