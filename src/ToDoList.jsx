@@ -82,7 +82,7 @@ function ToDoList() {
 
   return (
     <div className={`to-do-list ${isDarkMode ? 'dark' : 'light'}`}>
-      <h1>To-Do List</h1>
+      <h1>E-day List</h1>
 
       {/* Button to switch theme */}
       <button className="theme-toggle" onClick={toggleTheme}>
